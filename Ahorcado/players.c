@@ -30,15 +30,72 @@ if(*(process_verifier+0)==GOOD)
 return players_pointer;
 }
 
-void fillPlayers(sPlayer* players, int players_amount)
+void fillPlayers(sPlayer* players, int players_amount, int lifes_amount, int rounds_amount, char id_file_path[], int* process_verifier)
 {
-int i;
-for(i=0;i<players_amount;i++)
+if(*(process_verifier+1)==GOOD)
     {
-
+    int i;
+    char name[20];
+    int id_max=searchMaxIdFromFile(id_file_path);
+    for(i=0;i<players_amount;i++)
+        {
+        printf("Ingrese el nombre del Jugador %d: ",i+1);
+        gets(name);
+        normalizeAndCapitalize(name);
+        strcpy((players+i)->name,name);
+        (players+i)->lifes=lifes_amount;
+        (players+i)->rounds=rounds_amount;
+        (players+i)->word_points=0;
+        (players+i)->total_points=0;
+        (players+i)->id=id_max+1;
+        id_max=(players+i)->id;
+        }
+    *(process_verifier+2)=GOOD;
     }
 }
 
+int searchMaxIdFromFile(char path[])
+{
+FILE* pFile;
+int* id_array=NULL;
+int id_max=0;
+int ids_amount=0;
+int j;
+pFile=fopen(path,"rb");
+while(!feof(pFile))
+    {
+    fread(&id_max,sizeof(int),1,pFile);
+    ids_amount++;
+    }
+ids_amount--;
+fclose(pFile);
+if(ids_amount>0)
+    {
+    id_array=(int*)malloc(sizeof(int)*ids_amount);
+    if(id_array!=NULL)
+        {
+        fopen(path,"rb");
+        for(j=0;j<ids_amount;j++)
+            {
+            fread(id_array+j,sizeof(int),1,pFile);
+            }
+        for(j=0;j<ids_amount;j++)
+            {
+            printf("%d,",*(id_array+j));
+            if(*(id_array+j)>id_max || j==0)
+                {
+                id_max=*(id_array+j);
+                }
+            }
+        printf("\nid maxima: %d\n",id_max);
+        }
+    }
+else
+    {
+    printf("El archivo de IDs no contiene ningun valor\n");
+    }
+return id_max;
+}
 // FUNCIONES DE DEBBUGEO
 
 void showProcessVerifier(int process_verifier[], int len)
@@ -67,6 +124,25 @@ for(i=0;i<players_amount;i++)
     (players+i)->lifes=lifes[i];
     }
 printf("OKAY\n");
+}
+
+void hardcodeIDsFile(char path[], int mode)
+{
+FILE* pFile;
+pFile=fopen(path,"wb");
+if(pFile!=NULL)
+    {
+    if(mode==1)
+        {
+        int id[10]={1,2,3,4,5,6,7,8,9,10};
+        int i;
+        for(i=0;i<10;i++)
+            {
+            fwrite(id+i,sizeof(int),1,pFile);
+            }
+        }
+    }
+fclose(pFile);
 }
 
 void showPlayers(sPlayer* players, int players_amount)

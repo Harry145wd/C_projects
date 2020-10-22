@@ -44,3 +44,13 @@ char getChar(char msj[],char error[],char min,char max,int limite);
  *
  */
 void getString(char string[],char msj[]);
+
+
+/** \brief recibe una cadena de caracteres la cual pasa a minusculas y luego a mayusculas
+ *         cada letra despues de un espacio o al inicio de la cadena
+ *
+ * \param string[] char cadena de caracteres que sera normalizada
+ * \return int -1 si la cadena no tiene contenido, 1 si se normalizo correctamente
+ *
+ */
+int normalizeAndCapitalize(char string[]);
