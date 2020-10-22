@@ -2,13 +2,18 @@
 #include <stdlib.h>
 #include "harryio.h"
 #include "players.h"
+#define GOOD 1
+#define OKAY 0
+#define BAD -1
 int main()
 {
 int choice;
+int process_verifier[5]={BAD,BAD,BAD,BAD,BAD};
+showProcessVerifier(process_verifier,5);
 int players_amount;
 int rounds_amount;
 int lifes_amount;
-sPlayer* players;
+sPlayer* players=NULL;
 do
     {
     printf("| BIENVENIDOS AL JUEGO DEL AHORCADO |\n");
@@ -22,7 +27,12 @@ do
         {
         case 1:
             {
-
+            startup(&players_amount,&rounds_amount,&lifes_amount,process_verifier);
+            showProcessVerifier(process_verifier,5);
+            players=allocatePlayers(players_amount,process_verifier);
+            showProcessVerifier(process_verifier,5);
+            hardcodePlayers(players,players_amount);
+            showPlayers(players,players_amount);
             break;
             }
         case 2:
