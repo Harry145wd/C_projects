@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1589503661 source:c:\users\harry\desktop\utn\utn cursada\2do cuatrimestre\programacion i\proyectos_propios\ahorcado\harryio.c
+	<stdio.h>
+	<string.h>
+	"harryio.h"
+
+1599811843 c:\users\harry\desktop\utn\utn cursada\2do cuatrimestre\programacion i\proyectos_propios\ahorcado\harryio.h
+
+1603390813 source:c:\users\harry\desktop\utn\utn cursada\2do cuatrimestre\programacion i\proyectos_propios\ahorcado\main.c
+	<stdio.h>
+	<stdlib.h>
+	"harryio.h"
+
+1603391717 source:c:\users\harry\desktop\utn\utn cursada\2do cuatrimestre\programacion i\proyectos_propios\ahorcado\players.c
+	"players.h"
+
+1603391717 c:\users\harry\desktop\utn\utn cursada\2do cuatrimestre\programacion i\proyectos_propios\ahorcado\players.h
+	<stdio.h>
+	<stdlib.h>
+	"harryio.h"
+
