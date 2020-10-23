@@ -8,10 +8,10 @@
 int main()
 {
 char ids_file_path[]="ids.bin";
-hardcodeFiles(ids_file_path);
+char players_file_path[]="players.bin";
+hardcodeFiles(ids_file_path,players_file_path);
 int choice;
 int process_verifier[5]={BAD,BAD,BAD,BAD,BAD};
-showProcessVerifier(process_verifier,5);
 int players_amount;
 int rounds_amount;
 int lifes_amount;
@@ -30,24 +30,22 @@ do
         case 1:
             {
             startup(&players_amount,&rounds_amount,&lifes_amount,process_verifier);
-            showProcessVerifier(process_verifier,5);
             players=allocatePlayers(players_amount,process_verifier);
-            showProcessVerifier(process_verifier,5);
             fillPlayers(players,players_amount,lifes_amount,rounds_amount,ids_file_path,process_verifier);
-            showProcessVerifier(process_verifier,5);
-            gameStage(players,players_amount,lifes_amount,rounds_amount,process_verifier);
-            showProcessVerifier(process_verifier,5);
             showPlayers(players,players_amount);
+            gameStage(players,players_amount,lifes_amount,rounds_amount,process_verifier);
+            showPlayers(players,players_amount);
+            savePlayersIntoFile(players,players_amount,lifes_amount,rounds_amount,process_verifier,ids_file_path,players_file_path);
             break;
             }
         case 2:
             {
-
+            showPlayersLog(players_file_path,1);
             break;
             }
         case 3:
             {
-
+            showPlayersLog(players_file_path,0);
             break;
             }
         case 4:
