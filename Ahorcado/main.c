@@ -8,7 +8,7 @@
 int main()
 {
 char ids_file_path[]="ids.bin";
-hardcodeIDsFile(ids_file_path,0);
+hardcodeFiles(ids_file_path);
 int choice;
 int process_verifier[5]={BAD,BAD,BAD,BAD,BAD};
 showProcessVerifier(process_verifier,5);
@@ -34,6 +34,8 @@ do
             players=allocatePlayers(players_amount,process_verifier);
             showProcessVerifier(process_verifier,5);
             fillPlayers(players,players_amount,lifes_amount,rounds_amount,ids_file_path,process_verifier);
+            showProcessVerifier(process_verifier,5);
+            gameStage(players,players_amount,lifes_amount,rounds_amount,process_verifier);
             showProcessVerifier(process_verifier,5);
             showPlayers(players,players_amount);
             break;

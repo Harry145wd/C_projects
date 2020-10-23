@@ -27,15 +27,15 @@
 
 1602528745 c:\users\harry\desktop\utn\utn cursada\2do cuatrimestre\programacion i\c_projects\ahorcado\harryio.h
 
-1603407245 source:c:\users\harry\desktop\utn\utn cursada\2do cuatrimestre\programacion i\c_projects\ahorcado\main.c
+1603433179 source:c:\users\harry\desktop\utn\utn cursada\2do cuatrimestre\programacion i\c_projects\ahorcado\main.c
 	<stdio.h>
 	<stdlib.h>
 	"harryio.h"
 	"players.h"
 
-1603406233 c:\users\harry\desktop\utn\utn cursada\2do cuatrimestre\programacion i\c_projects\ahorcado\players.h
+1603433201 c:\users\harry\desktop\utn\utn cursada\2do cuatrimestre\programacion i\c_projects\ahorcado\players.h
 
-1603407646 source:c:\users\harry\desktop\utn\utn cursada\2do cuatrimestre\programacion i\c_projects\ahorcado\players.c
+1603433179 source:c:\users\harry\desktop\utn\utn cursada\2do cuatrimestre\programacion i\c_projects\ahorcado\players.c
 	"players.h"
 	<stdio.h>
 	<stdlib.h>
